@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="highlight-js/railscasts.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png"/>
+
+    <title>luupanu's website</title>
+
+    <script src="index.js"></script>
+    <script src="highlight-js/highlight.min.js"></script>
+    <script src="highlight-js/highlightjs-line-numbers.min.js"></script>
+    <script>hljs.highlightAll();hljs.initLineNumbersOnLoad();</script>
+</head>
+<body>
+    <nav>
+        <div class="nav-link">
+            <a href="./">🌎 HOME 🏠</a>
+        </div>
+        <div class="nav-link">
+            <a class="active" href="">🔧 PHYSICAL COMPUTING 🖥️</a>
+        </div>
+    </nav>
+    <div class="content">
+        <article>
+            <h1>Physical Computing</h1>
+            <li><a href="https://learn.newmedia.dog/courses/physical-computing">Physical Computing 2022 website</a></li>
+        </article>
+        <article>
+            <h2>Week 1 - <a href="https://learn.newmedia.dog/courses/physical-computing/week-01/#2-arduino-basics-thursday-november-1-1300">Arduino Basics</a></h2>
+            <p>I connected the pins to Arduino as such:</p>
+            <div class="img">
+                <img src="img/w1_1.webp">
+            </div>
+            <h3>Code</h3>
+            <div class="codeblock">
+                <pre><div class="clipboard" title="Copy to clipboard" onclick="copyCode('#arduino-basics', this)"><span class="hidden">Copied!</span></div><code class="language-csharp" id="arduino-basics">#define BUTTON 2
+#define LED_0 7
+#define LED_1 8
+
+int buttonValue;
+int ledState = 0;
+int lock = 0;
+
+void setup() {
+    pinMode(BUTTON, INPUT);
+    pinMode(LED_0, OUTPUT);
+    pinMode(LED_1, OUTPUT);
+}
+
+void loop() {
+    buttonValue = digitalRead(BUTTON);
+
+    if (lock == 0 && buttonValue == HIGH) {
+        lock = 1;  // hold the lock
+
+        delay(5);  // sleep for 5ms
+
+        /* do a second check after 5ms.
+           this shouldn't be necessary with the lock in place,
+           but the button seems too sensitive otherwise */
+        if (buttonValue == HIGH) {
+            ledState++;
+
+            if (ledState > 2) {
+                ledState = 0;
+            }
+        }
+        
+    }
+
+    // release the lock if we're not pressing the button
+    if (buttonValue == LOW) {
+        lock = 0;
+    }
+
+    // switch-case (maybe) a bit more readable than if-else-if
+    switch(ledState) {
+        case 1:
+            digitalWrite(LED_0, HIGH);
+            break;
+        case 2:
+            digitalWrite(LED_1, HIGH);
+            break;
+        default:
+            digitalWrite(LED_0, LOW);
+            digitalWrite(LED_1, LOW);
+            break;   
+    }
+
+    delay(5);
+}</code></pre></div>
+            <p>I check that the button is being held two times with 5ms in-between (so that the button has hopefully been held for at least 5ms) at <span class="highlight1"><a href="#arduino-basics.L26">line 26</a></span>.</p>
+            <p>This isn't strictly necessary, but as you can maybe see from the video below - the button I have feels a bit too sensitive. I felt it improved the control a little bit.</p>
+            <div class="video">
+                <video controls loop muted>
+                    <source src="video/w1.mp4" type="video/mp4">
+                </video>
+            </div>
+            <p class="article-end">// END</p>
+        </article>
+    </div>
+</body>
+</html>
