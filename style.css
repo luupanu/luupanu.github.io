@@ -6,13 +6,18 @@
     --highlight-color1: #e8d34c;
     --highlight-color2: #daa520;
 
-    --text-highlight1: #3d9221;
+    --text-color: white;
+    --shaded-color: #888;
+
+    --text-highlight1: #6bbe4d;
+    --text-highlight2: #bcebff;
+    --text-highlight3: #ff4a69;
 
     --box-shadow: 3px 3px 5px;
     --text-shadow: 1.5px 1.5px 2px black;
 
     --nav-a-size: 1.5rem;
-    --p-size: 1.1rem;
+    --p-size: 1rem;
     --h1-size: 2.25rem;
     --h2-size: 1.5rem;
 
@@ -57,7 +62,7 @@ nav {
 }
 
 nav a {    
-    color: white;
+    color: var(--text-color);
     font-family: Poppins;
     font-size: var(--nav-a-size);
     text-decoration: none;
@@ -75,7 +80,7 @@ nav a.active {
 }
 
 h1, h2, h3 {
-    color: white;
+    color: var(--text-color);
     font-family: Poppins;
     /*text-shadow: var(--text-shadow);*/
 }
@@ -88,10 +93,17 @@ h2 {
     font-size: var(--h2-size);
 }
 
-p {
-    color: white;
-    font-family: 'Helvetica Neue';
+p, li {
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
     font-size: var(--p-size);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    line-height: 22px;
+}
+
+ul, ol {
+    padding: 0;
 }
 
 a {
@@ -108,16 +120,16 @@ article {
     padding-bottom: 20px;
 }
 
-article h1 ~ *,
-article h2 ~ *,
-article h3 ~ * {
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
 article:last-child {
     border: none;
     padding: 20px 0 0;
+}
+
+h1 + *,
+h2 + *,
+h3 + * {
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 code {
@@ -128,9 +140,23 @@ code {
 }
 
 li {
-    color: white;
-    font-size: var(--p-size);
     list-style-position: inside;
+}
+
+figure {
+    margin: 0;
+}
+
+figcaption {
+    color: #afaaa6;
+    font-size: var(--p-size);
+    font-style: italic;
+    margin-top: 28px;
+    text-align: center;
+}
+
+.indent {
+    margin-left: 20px;
 }
 
 .hidden {
@@ -198,8 +224,8 @@ li {
 }
 
 .article-end {
-    color: #888;
-    font-size: 1rem;
+    color: var(--shaded-color);
+    font-size: var(--p-size);
 }
 
 /* hljs customization */
@@ -212,5 +238,5 @@ li {
 }
 
 td.hljs-ln-numbers {
-    color: #888;
+    color: var(--shaded-color);
 }

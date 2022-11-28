@@ -27,17 +27,21 @@
     <div class="content">
         <article>
             <h1>Physical Computing</h1>
-            <li><a href="https://learn.newmedia.dog/courses/physical-computing" target="_blank">Physical Computing 2022 website</a></li>
+            <ul>
+                <li><a href="https://learn.newmedia.dog/courses/physical-computing" target="_blank">Physical Computing 2022 website</a></li>
+            </ul>
         </article>
+
         <article>
-            <h2>Week 1 - <a href="https://learn.newmedia.dog/courses/physical-computing/week-01/#2-arduino-basics-thursday-november-1-1300" target="_blank">Arduino Basics</a></h2>
-            <p>I connected the pins to Arduino as such:</p>
-            <div class="img">
-                <img src="img/w1_1.webp">
-            </div>
-            <h3>Code</h3>
-            <div class="codeblock">
-                <pre><div class="clipboard" title="Copy to clipboard" onclick="copyCode('#arduino-basics', this)"><span class="hidden">Copied!</span></div><code class="language-csharp" id="arduino-basics">#define BUTTON 2
+            <h2>Week 1 – <a href="https://learn.newmedia.dog/courses/physical-computing/week-01/#2-arduino-basics-thursday-november-1-1300" target="_blank">Arduino Basics</a></h2>
+            <div>
+                <p>I connected the pins to Arduino as such:</p>
+                <div class="img">
+                    <img src="img/w1_1.jpg" width="650px">
+                </div>
+                <h3>Code</h3>
+                <div class="codeblock">
+                    <pre><div class="clipboard" title="Copy to clipboard" onclick="copyCode('#arduino-basics', this)"><span class="hidden">Copied!</span></div><code class="arduino" id="arduino-basics">#define BUTTON 2
 #define LED_0 7
 #define LED_1 8
 
@@ -93,12 +97,523 @@ void loop() {
 
     delay(5);
 }</code></pre></div>
-            <p>I check that the button is being held two times with 5ms in-between (so that the button has hopefully been held for at least 5ms) at <span class="highlight1"><a href="#arduino-basics.L26">line 26</a></span>.</p>
-            <p>This isn't strictly necessary, but as you can maybe see from the video below - the button I have feels a bit too sensitive. I felt it improved the control a little bit.</p>
-            <div class="video">
-                <video controls loop muted>
-                    <source src="video/w1.mp4" type="video/mp4">
-                </video>
+                <p>I check that the button is being held two times with 5ms in-between (so that the button has hopefully been held for at least 5ms) at <span class="highlight1"><a href="#arduino-basics.L26">line 26</a></span>.</p>
+                <p>This isn't strictly necessary, but as you can maybe see from the video below – the button I have feels a bit too sensitive. I felt it improved the control a little bit.</p>
+                <div class="video">
+                    <video controls loop muted>
+                        <source src="video/w1.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <p class="article-end">// END</p>
+        </article>
+
+        <article>
+            <h2>Week 2 – <a href="https://learn.newmedia.dog/courses/physical-computing/week-02/#deliverables-for-week-2-deadline-tuesday-november-8-1300" target="_blank">Alt+Ctrl</a></h2>
+
+            <div>
+                <h3>Find an interesting existing Alt+Ctrl Interface</h3>
+
+                <p>I like the simplicity of Bruce and Box from the <a href="https://gdconf.com/alt-ctrl-gdc/archive" target="_blank">2020 GDC list</a> – showing that you don't need an interaction or the material/tools to be super complex to be fun for the players – especially when the setting is fun/absurd.</p>
+                <div class="video">
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FQ6T30UfEOE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <p>Bruce and Box is a simple game where you suddenly find yourself naked and try to get home by sneaking inside a cardboard box before you're caught. It works by using a distance sensor to calculate the distance between the floor and the cardboard box. The further you are away from the ground, the faster you go. The game probably pays homage to sneaking with the cardboard box in the classic game <a href="https://www.youtube.com/watch?v=BPmd9pZKTxE" target="_blank">Metal Gear Solid</a>.</p>
+            </div>
+
+            <div>
+                <h3>Come up with a concept for your own Alt+Ctrl Interface</h3>
+
+                <p>My concept involves an upside bicycle with an <a href="https://en.wikipedia.org/wiki/Inertial_measurement_unit" target="_blank">IMU sensor</a> attached to the wheelrim. The IMU sensor is used to sense whether the wheel is turned clockwise or counter-clockwise, corresponding to left and right movement in a simple platforming game such as <a href="https://www.youtube.com/watch?v=rLl9XBg7wSs" target="_blank">Super Mario Bros</a>. The game would be a modified version of Super Mario Bros. where the faster you make the wheel turn, the faster your movement to that direction is.</p>
+                <div class="img">
+                    <img src="img/bicycle_game.jpg">
+                </div>
+                <p>There is one of those classic yellow reflectors attached to one of the spokes in the wheel. A piezo microphone is set up to pick up hits on that particular spoke. In the hypothetical game you use a drumstick to hit that spoke in order to jump. There would be no speed limit in this game – the faster you rotate the faster you can go – however jumping becomes really hard if you're rotating the wheel too fast in any direction, making controlling the game a careful, balancing act.</p>
+                <p>The fun part in this hypothetical game is that you could have two players side by side – each controlling one wheel of the bicycle, competing to play levels of the game as fast as possible.</p>
+            </div>
+            
+        </article>
+
+        <article>
+            <h2>Week 4 – <a href="https://learn.newmedia.dog/courses/physical-computing/week-04/#assignment-deadline-tuesday-november-22-at-1300" target="_blank">Two Sensors</a></h2>
+            
+            <div>
+                <h3>About Euclidean rhythms</h3>
+
+                <div>
+                    <p>Euclidean rhythms are rhythms that are spaced as evenly as possible. First described in a <a href="http://cgm.cs.mcgill.ca/~godfried/publications/banff.pdf" target="_blank">paper by Toussaint (2005)</a>, they are found in traditional music all over the world. For example the Cuban <a href="https://en.wikipedia.org/wiki/Tresillo_(rhythm)" target="_blank"><i>tresillo</i></a>, humorously portrayed <a href="https://www.youtube.com/watch?v=9tcdBYK9ZmY" target="_blank">here</a>, can be described by the Euclidean algorithm as:
+
+                    <p class="indent">E(<span style="color: var(--text-highlight1)">3</span>, <span style="color: var(--text-highlight3)">8</span>) = <span style="color: var(--text-highlight1)">1</span> 0 0 <span style="color: var(--text-highlight1)">1</span> 0 0 <span style="color: var(--text-highlight1)">1</span> 0</p>
+
+                    <p>where <span style="color: var(--text-highlight1">k=3</span> is the number of hits and <span style="color: var(--text-highlight3">n=8</span> is the length of the rhythm.
+
+                    <p>I've previously played around some with Euclidean rhythms and found that they're quite nice to use if you use controllers to map values of <span style="color: var(--text-highlight1)">k</span> and <span style="color: var(--text-highlight3)">n</span>. That led to the idea of using <a href="https://en.wikipedia.org/wiki/Servomotor" target="_blank">servomotors</a> to act as a rhythm machine.</p>
+                </div>
+
+                <h3>Adding some rhythmical interest</h3>
+
+                <div>
+                    <p>The servomotor I have takes values from <span style="color: var(--text-highlight1">0-180</span> corresponding to degrees in angles. My goal is to map each Euclidean rhythm to an angle. Instead of sending only <span style="color: var(--text-highlight1)">1</span>s and <span style="color: var(--text-highlight1)">0</span>s though, I can randomize the value of each <i>hit</i> to be a value between <span style="color: var(--text-highlight1)">1–180</span>. Thus a hit with a value of <span style="color: var(--text-highlight1)">180</span> would be louder than a hit of <span style="color: var(--text-highlight1)">10</span>, as the servomotor has to turn <i>more</i> and <i>faster</i> to reach the desired angle.</p>
+
+                    <p>The tresillo rhythm with randomized accentuation could for example become:</p>
+
+                    <p class="indent"><span style="color: var(--text-highlight1)">10</span> 0 0 <span style="color: var(--text-highlight1)">20</span> 0 0 <span style="color: var(--text-highlight1)">10</span> 0</p>
+
+                    <p>which would indicate that the middle hit in the rhythm would be roughly twice as loud as the other hits.</p>
+
+                    <p>How to do this kind of randomisation? Easiest would be of course to put a random value between 1–180 to each hit – but total randomness like this is rarely interesting. We want to have some control over the randomness, and to be potentially able to replicate a pattern that we like with a seed number we use.</p>
+
+                    <p>Therefore, let's first constrain the problem by picking a few values that could be suitable for use with the servomotor. Through some experimentation, I found that <span style="color: var(--text-highlight1)">40</span> is enough to be the loudest, maximum value. I would argue that in traditional notated music, at least four values are needed for a wide enough dynamic range, <span style="color: var(--text-highlight1)"><i>piano</i></span>, <span style="color: var(--text-highlight1)"><i>mezzopiano</i></span>, <span style="color: var(--text-highlight1)"><i>mezzoforte</i></span> and <span style="color: var(--text-highlight1)"><i>forte</i></span>. If <span style="color: var(--text-highlight1)">40</span> is our <i>forte</i>, <span style="color: var(--text-highlight1)">20</span>, <span style="color: var(--text-highlight1)">10</span> and <span style="color: var(--text-highlight1)">5</span> could represent the rest of the dynamics. What is needed then, is a function to generate all of the possibilities for our four dynamics. I've done a similar algorithm before to generate juggling patterns - this one was an easier version of that.</p>
+
+                    <p>We start by noting that since our rhythms will be looping, there is a lot of redundancy in the patterns. For example, <span style="color: var(--text-highlight1)">20 10 5 40</span> is the exact same rhythm as <span style="color: var(--text-highlight1)">40 20 10 5</span>, just rotated left once.</p>
+
+                    <p>In fact we could take this even further and treat <span style="color: var(--text-highlight1)">40 20 10 5</span> as the same pattern as <span style="color: var(--text-highlight1)">40 5 10 20</span> even though this is actually not true. By adding a simple shuffle it's possible to generate the latter pattern from the same numbers as the previous one as well. What we're looking for is an algorithm to generate permutations that are <i>sorted</i>. As far as I know, there is no standard naming convention for these kind of permutations, but it is the same problem as described <a href="https://math.stackexchange.com/a/2608268" target="_blank">here</a>.</p>
+
+                    <p>It's quite easy to produce a few examples to gain some understanding how to generate a list of these numbers. We can try for example patterns with <span style="color: var(--text-highlight3)">k=3</span> hits with our <span style="color: var(--text-highlight1)">j=4</span> different amplitude choices (5, 10, 20, 40). Working by hand we get the following numbers:</p>
+
+                    <pre><code>40 40 40
+40 40 20
+40 40 10
+40 40  5
+40 20 20
+40 20 10
+40 20  5
+40 10 10
+40 10  5
+40  5  5
+20 20 20
+20 20 10
+20 20  5
+20 10 10
+20 10  5
+20  5  5
+10 10 10
+10 10  5
+10  5  5
+5   5  5</code></pre>
+                    <p>Using <a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank">Python</a> we can be sure that we generated <a href="https://math.stackexchange.com/a/2608291" target="_blank">all of the possible patterns</a> by hand - as we have 20 of them, as expected.</p>
+                    <div class="img">
+                        <img src="img/sorted_permutations.webp">
+                    </div>
+                    <p>Looking at the numbers we can split the algorithm into five different parts:</p>
+                    <div class="img">
+                        <img src="img/rhythm_algorithm.jpg">
+                    </div>
+                    <p>Voilà – we have an algorithm to generate all possible, sorted patterns. We can later on add additional constraints to choose our patterns. For example we could only choose patterns that don't contain any repeated numbers, patterns that sum to less than a certain amount, etc.</p>
+                    <p>As a final step, remember to shuffle the sorted patterns to obtain all possible patterns.</p>
+                </div>
+
+                <h3>Volume control</h3>
+                <div>
+                    <p>Let's quickly recap what we are working with currently.</p>
+                    <ol>
+                        <li>Euclidean rhythms are rhythms that are divided "as evenly as possible". We use Bjorklund's algorithm described in a paper by <a href="http://cgm.cs.mcgill.ca/~godfried/publications/banff.pdf" target="_blank">Toussaint</a> to generate them.</li>
+                        <li>Instead of generating "normal" euclidean rhythms where <span style="color: var(--text-highlight1)">1</span> denotes a hit and <span style="color: var(--text-highlight1)">0</span> a rest, we use our pattern generating algorithm in order to generate variation in <a href="https://en.wikipedia.org/wiki/Dynamics_(music)" target="_blank">dynamics</a>. After generating an euclidean pattern such as "<span style="color: var(--text-highlight1)">1 </span>0 0 <span style="color: var(--text-highlight1)">1</span> 0 0 <span style="color: var(--text-highlight1)">1</span> 0" we replace the hits (<span style="color: var(--text-highlight1)">1</span>s) with random values from [<span style="color: var(--text-highlight1)">5</span>, <span style="color: var(--text-highlight1)">10</span>, <span style="color: var(--text-highlight1)">20</span>, <span style="color: var(--text-highlight1)">40</span>], to get for example the following pattern: "<span style="color: var(--text-highlight1)">40</span> 0 0 <span style="color: var(--text-highlight1)">20</span> 0 0 <span style="color: var(--text-highlight1)">5</span> 0".</li>
+                    </ol>
+
+                    <p>Now, there's an easy way to add volume control to our setup. We can divide the generated pattern and round to the nearest integer. For example, divide "<span style="color: var(--text-highlight1)">40</span> 0 0 <span style="color: var(--text-highlight1)">20</span> 0 0 <span style="color: var(--text-highlight1)">5</span> 0" by <span style="color: var(--text-highlight3)">5</span> and you get:</p>
+                    <p class="indent"><span style="color: var(--text-highlight1)">8</span> 0 0 <span style="color: var(--text-highlight1)">4</span> 0 0 <span style="color: var(--text-highlight1)">1</span> 0</p>
+                    <p>Again – these numbers correspond to servomotor angles in degrees. Asking the servomotor to turn a smaller angle makes a smaller mechanical sound since the servomotor has to turn less, and less quickly.</p>
+                </div>
+
+                <div>
+                    <h3>Adding sensors to the mix</h3>
+                    <div class="img">
+                        <img src="img/w4.jpg">
+                    </div>
+                    <p>I added two sensors – a <a href="https://www.pololu.com/product/1645" target="_blank">force-sensing resistor</a> and a 10KΩ <a href="https://www.pololu.com/product/1645" target="_blank">potentiometer</a>. The force-sensing resistor acts like volume control as discussed in the previous section, and the potentiometer controls the Euclidean algorithm's parameters, namely the length of the rhythm, or <span style="color: var(--text-highlight3)">n</span>. The <span style="color: var(--text-highlight1)">k</span> parameter of the Euclidean algorithm is randomized.</p>
+                    <p>The rhythms are generated inside <a href="https://en.wikipedia.org/wiki/SuperCollider" target="_blank">SuperCollider</a> code. SuperCollider is used to start the communication, and it reads four bytes at a time, of which the first two correspond to the touch sensor and the last two to the potentiometer values. Arduino then reads servo angles that are produced by the pattern it receives from Supercollider.</p>
+                    <p>Here's the end result. Unmute to hear the sound...</p>
+                    <div class="video">
+                        <video controls width="480">
+                            <source src="video/w2.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <p>Here's the Arduino code:</p>
+                    <div class="codeblock"><pre><div class="clipboard" title="Copy to clipboard" onclick="copyCode('#two-sensors-ar', this)"><span class="hidden">Copied!</span></div><code class="arduino" id="two-sensors-ar">#include &lt;Servo.h&gt;
+#include &lt;Ewma.h&gt;
+
+#define TOUCH_SENSOR_PIN A0
+#define POT_PIN A2
+#define SERVO_PIN 9
+
+int touchValue;
+int filteredTouch;
+
+int potValue;
+int filteredPot;
+
+int pos;
+
+Ewma ewmaTouch(0.01);
+Ewma ewmaPot(0.01);
+
+Servo servo;
+
+void turnServo(long pos) {
+    servo.write(pos);
+}
+
+void setup() {
+    servo.attach(SERVO_PIN);
+    Serial.begin(115200);
+}
+
+void loop() {
+    // read two sensors
+    touchValue = analogRead(TOUCH_SENSOR_PIN);
+    potValue = analogRead(POT_PIN);
+    
+    // use filtering to smoothen the data
+    filteredTouch = ewmaTouch.filter(touchValue);
+    filteredPot = ewmaPot.filter(potValue);
+    
+    // send sensor data to Supercollider
+    if (filteredTouch > 0) {
+        Serial.write(highByte(filteredTouch));  // send higher byte
+        Serial.write(lowByte(filteredTouch));   // then lower byte
+        // Serial.println();
+        Serial.write(highByte(filteredPot));    // send higher byte
+        Serial.write(lowByte(filteredPot));     // then lower byte
+    }
+
+    // read servo angles from Supercollider
+    if (Serial.available() > 0) {
+        pos = Serial.read();
+        turnServo(pos);  // turn servo
+    }
+
+    delay(1);
+}
+</code></pre></div>
+                        <p>and finally the SuperCollider code.</p>
+                        <div class="codeblock"><pre><div class="clipboard" title="Copy to clipboard" onclick="copyCode('#two-sensors-sc', this)"><span class="hidden">Copied!</span></div><code class="supercollider" id="two-sensors-sc">// servo rhythms!
+
+(
+/************************************* CONFIGURATION *************************************/
+var serialport = "/dev/cu.usbmodem14101";
+var baudrate = 115200;
+
+// "constants"
+~primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101];
+~randSeed = 0;
+
+/***************************************** GUI *******************************************/
+Window.closeAll;
+
+w = Window(
+    name: "Servo",
+    bounds: Rect(0, 0, 800, 300),
+).front;
+
+w.alwaysOnTop = true;
+
+v = VLayoutView(w, Rect(10, 25, 800, 70));
+h = HLayoutView(w, Rect(50, 70, 750, 230));
+
+~slider_touch = EZSlider(
+    parent: h,
+    bounds: 50@200,
+    label: "Touch",
+    controlSpec: ControlSpec(30, 600),
+    layout: \vert,
+);
+
+~slider_pot = EZSlider(
+    parent: h,
+    bounds: 50@200,
+    label: "Pot",
+    controlSpec: ControlSpec(0, 10),
+    layout: \vert,
+);
+
+~random_num = Button(
+    parent: h,
+    bounds: 100@100,
+);
+
+~random_num.string = "Randomize";
+~random_num.states = [["Randomize", Color.black, Color.rand]];
+~random_num.action = {
+    ~randSeed = rrand(0, 9999);
+    thisThread.randSeed = ~randSeed;
+    ~randomizeRhythm.(~randSeed, ~primes[~slider_pot.value]);
+    ~random_num.states = [["Randomize", Color.black, Color.rand]];
+};
+
+~random_text = StaticText(v);
+~rhythm_text = StaticText(v);
+
+/************************************* FUNCTIONS *****************************************/
+
+// generate servo rhythms with length n from maxim to minim
+// dividing the rhythm by 2 each time
+// this will generate exactly binom(n+k-1, n) rhythms
+// where k is the number of rhythm choices
+//
+// e.g. n=2, maxim=20, minim=5 would generate
+//
+// [20, 20]
+// [20, 10]
+// [20, 5]
+// [10, 10]
+// [10, 5]
+// [5, 5]
+//
+// here we have binom(2+3-1, 2) = 6 rhythms generated since we have k=3 choices [5, 10, 20]
+// see: https://math.stackexchange.com/q/2608264
+~generateServoRhythms = { |n, maxim=40, minim=5|
+    var rhythms, arr, i;
+
+    rhythms = List();
+    arr = maxim!n;
+
+    block { |break|
+        while ({ true }, {
+            rhythms.add(arr.copy);
+            i = n - 1;
+
+            while ({ arr[i] &gt; minim }, {
+                arr[i] = arr[i].div(2);
+                rhythms.add(arr.copy);
+            });
+
+            while ({ (i &gt;= 0) and: (arr[i] == minim) }, {
+                i = i - 1;
+            });
+
+            if (i &lt; 0, {
+                break.(rhythms);
+            });
+
+            arr[i..] = arr[i].div(2);
+        });
+    };
+};
+
+// this function creates random rhythms with rhythmical variation
+//
+// first of all we use the Bjorklund algorithm to generate euclidean rhythms
+// euclidean rhythms are rhythms that are distributed as evenly as possible
+// see: http://cgm.cs.mcgill.ca/~godfried/publications/banff.pdf
+//
+// Bjorklund algorithm usage: Bjorklund(k, n), where
+// k = the number of hits and n = the length of the rhythm
+//
+// for example Bjorklund(2, 5) creates always two hits spaced like so:
+// [1, 0, 1, 0, 0]
+// here 1 denotes a hit
+//
+// we modify Bjorklund's algorithm by giving some random rhythmical variations
+// that we then send to a servomotor
+//
+// a servomotor accepts values from 0-180 (angle in degrees)
+//
+// we could therefore for example modify the previous two hits to be:
+// [ 10, 0, 5, 0, 0 ]
+// so that the first hit is stronger than the previous one (more servomotor movement = more sound)
+~generateServoAmps = { |k=4, n=9, maxRhythmSum|
+    var i = -1;
+    var servo;
+
+    if (maxRhythmSum.isNil, {
+        maxRhythmSum = (k+1) * 20;
+    });
+
+    servo = ~generateServoRhythms.(k).select({ |x| sum(x) &lt;= maxRhythmSum }).choose.scramble;
+
+    Bjorklund(k, n).collect({ |x|
+        if (x == 1, {
+            i = i + 1;
+            servo[i];
+        }, {
+            0
+        });
+    })
+};
+
+~randomizeRhythm = { |seed, timeSignature|
+    thisThread.randSeed = seed * ~randSeed;
+
+    ~rhythm = ~generateServoAmps.(
+        rrand(1, (0.75 * timeSignature).round.asInteger),
+        timeSignature,
+    );
+
+    Pdefn(\angle, Pseq(~rhythm, inf));
+};
+
+/********************************* SERIAL COMMUNICATION *********************************/
+if (~serial.notNil, { ~serial.close });
+
+~serial = SerialPort(
+    port: serialport,
+    baudrate: baudrate,
+);
+
+CmdPeriod.add({ fork { ~serial.put(1); 0.1.wait; ~serial.close; } });
+
+// listen to serial data
+fork {
+    var bytes;
+    var touch, pot;
+    var touchScaled, potScaled;
+    var timeSignature;
+    var prevPot = -1;
+
+    loop {
+        bytes = [-1, -1, -1, -1];
+
+        4.do({ |i|
+            bytes[i] = ~serial.read;
+        });
+
+        touch = bytes[0] &lt;&lt; 8 | bytes[1];
+        pot = bytes[2] &lt;&lt; 8 | bytes[3];
+
+        touchScaled = touch.lincurve(30, 600, 8, 0.125, -6);
+        potScaled = (pot.round(20)).linlin(0, 700, 0, 10).round.asInteger;
+
+        timeSignature = ~primes[potScaled];
+
+        if (prevPot != potScaled, {
+            ~randomizeRhythm.(potScaled, timeSignature);
+            prevPot = potScaled;
+        });
+
+        // update GUI
+        AppClock.sched(0.0, {
+            ~slider_touch.value = touch;
+            ~slider_pot.value = potScaled;
+            ~rhythm_text.string = ~rhythm.div(touchScaled).min(180);
+            ~random_text.string = "Random seed: " + ~randSeed;
+        });
+
+        Pdefn(\div, touchScaled);
+    }
+};
+
+// create a handle to be able to control tempo later
+t = TempoClock.default;
+t.tempo = 60/60;
+
+// our pattern
+p = Pbind(
+    \dur, 0.125,
+    \div, Pdefn(\div),
+    \angle, Pdefn(\angle),
+    \play, { topEnvironment.at(\serial).put(~angle.div(~div).min(180)); },
+).play(t);
+)</code></pre></div>
+                </div>
+            </div>
+            <p class="article-end">// END</p>
+        </article>
+
+        <article>
+            <h2>Final Project – <a href="https://learn.newmedia.dog/courses/physical-computing/final-project" target="_blank">planning phase</a></h2>
+            <div>
+                <h3>What?</h3>
+                <div>
+                    <div class="img">
+                        <figure>
+                            <img src="img/ai_heart1.webp"><img src="img/ai_heart2.webp">
+                            <figcaption>DALL-E renditions of the installation. Public gallery available <a href="https://labs.openai.com/sc/9njO6ICqzdOMd5e9tqWI6mvb" target="_blank">here</a></figcaption>
+                        </figure>
+                    </div>
+                    <p>My final project is to explore the interactions and fabrication necessary for my master's thesis idea. For my thesis I plan to make a multichannel, interactive audio installation with a heart in the middle of a room.</p>
+                    <p>When a person enters the room there is an ambient soundscape of wheezing, clicking, mechanized sounds, breathing. People can explore the auditory scene of the room without interacting if they so wish.</p>
+                    <p>When the person approaches <span style="color: var(--text-highlight3">The Heart</span>, raw, restless synthesized pulsating sounds appear, which become higher and higher in volume, trying to guide the person towards <span style="color: var(--text-highlight3">The Heart</span>.</p>
+                    <p>When the person finally is within touching distance from <span style="color: var(--text-highlight3">The Heart</span>, there should be a change in the audio scenery like you were suddenly on top of a windy mountain, a release of tension, and a light will turn on inside <span style="color: var(--text-highlight3">The Heart</span>, signifying you to interact with it.</p>
+                    <p>Finally, if a person interacts with <span style="color: var(--text-highlight3">The Heart</span> to <i>resuscitate</i> it, music starts playing. There are strings similar to veins called <span style="color: var(--text-highlight3">threads of life</span> coming out of <span style="color: var(--text-highlight3">The Heart</span> and filling the room. Some of them are on a highlighted spot, such as on top of a pedestal, accompanied by a nearby speaker. While the music is playing, if a person touches a <span style="color: var(--text-highlight3">thread of life</span>, an additional layer to the music will fade in and start playing from the closest speaker.</p>
+
+                    <div class="img">
+                        <figure>
+                            <img src="img/heart_diagram.png" width="650px">
+                            <figcaption>The main interactable parts of the installation</figcaption>
+                        </figure>
+                    </div>
+                    <div class="img">
+                        <figure>
+                            <img src="img/heart_states.png" width="650px">
+                            <figcaption>Four different states, the sounds associated with them, and how to get to the next state</figcaption>
+                        </figure>
+                    </div>
+                    <div class="img">
+                        <figure>
+                            <img src="img/heart_tech.png" width="650px">
+                            <figcaption>Currently planned tech and how they connect to each other</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <h3>Inspiration</h3>
+                <ul>
+                <li><a href="https://emmamuseum.fi/en/exhibitions/chiharu-shiota-tracing-boundaries" target="_blank">Chiharu Shiota: Tracing Boundaries</a> (2021)</li>
+                <li><a href="https://www.youtube.com/watch?v=nWufEJ1Ava0" target="_blank">Heart Machine: Hyper Light Drifter</a> (2016)</li>
+                </ul>
+
+                <h3>Goal for the course</h3>
+                <div>
+                    <p>I'm starting the project from scratch as I do the final project for this course. The goal is to at least prototype a few interactions, figure out how do they work, as well as explore the fabrications necessary to make the installation work.</p>
+                    <p>I don't have a lot of previous experience with electronics or fabrication. I did one major project previously where two infrared sensors were used to detect a person either entering or exiting an elevator - and if they were exiting the elevator - some sounds were played through eight surface transducers. This was exhibited over the last summer for three months.</p>
+                    <p>I'll focus on <span style="color: var(--text-highlight3">The Heart</span> and <span style="color: var(--text-highlight3">threads of life</span> interactions and also explore the visual look for the installation. I also want to at least try out the <span style="color: var(--text-highlight3">distance sensing</span>.</p>
+                </div>
+            </div>
+            <p class="article-end">// END</p>
+        </article>
+
+        <article>
+            <h2>Final Project – <span style="color: var(--text-highlight3">The Heart</span></a></h2>
+            <div>
+                <h3>Tech needed</h3>
+                <ul>
+                    <li><a href="https://store.arduino.cc/products/arduino-uno-rev3?selectedStore=eu" target="_blank">Arduino Uno</a> (18€)</li>
+                    <li>Soft silicone</li>
+                    <li>LEDs</li>
+                    <li><a href="https://www.clasohlson.com/fi/Palkeet-puu-keinonahka/p/Pr407586000" target="_blank">Bellows</a> (17€)</li>
+                </ul>
+
+                <h3>Silicone mold</h3>
+                <p><a href="https://www.jasminexie.art/portfolio" target="_blank">Jasmine Xie</a>, a recent Aalto University graduate has made an amazingly well documented <a href="https://create.arduino.cc/projecthub/jyxie/squish-that-cat-c842c6" target="_blank">tutorial</a> on how to make and cast a silicone mold.</p>
+            </div>
+            <p class="article-end">// END</p>
+        </article>
+
+        <article>
+            <h2>Final Project – <span style="color: var(--text-highlight3">Threads of Life</span></a></h2>
+            <div>
+                <h3>Tech needed</h3>
+                <ul>
+                    <li><a href="https://shop.bela.io/products/trill-craft" target="_blank">Bela Trill Craft</a> (18€)</li>
+                    <li><a href="https://cpc.farnell.com/mc-multi-contact/61-7606-22/silivolt-silicone-insulated-0/dp/CBBR1701" target="_blank">Silicone insulated cable</a></li>
+                </ul>
+
+                <h3>Testing out capacitive sensing</h3>
+                <div>
+                    <p>to be written...</p>
+                </div>
+            </div>
+            <p class="article-end">// END</p>
+        </article>
+
+        <article>
+            <h2>Final Project – <span style="color: var(--text-highlight3">Distance sensing</span></a></h2>
+            <div>
+                <h3>Tech needed</h3>
+                <ul>
+                    <li><a href="https://www.sparkfun.com/products/14844" target="_blank">SparkFun IR Array (MLX90640)</a> ($75)</li>
+                </ul>
+
+                <h3>Testing distance sensing using an IR array</h3>
+                <div>
+                    <p>to be written...</p>
+                </div>
+
+                <h3>Extending an I²C cable length</h3>
+                <div>
+                    <p>to be written...</p>
+                </div>
             </div>
             <p class="article-end">// END</p>
         </article>
