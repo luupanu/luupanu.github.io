@@ -46,6 +46,18 @@ function scrollToLine(hash) {
     line.scrollIntoView();
 }
 
+function scrollToElement(hash) {
+    const element = document.querySelector(hash);
+
+    window.location.hash = hash;
+
+    element.scrollIntoView();
+}
+
+function scrollToTop() {
+    window.scrollTo(0, 0);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const videos = document.querySelectorAll('video');
     let autoplay = true;
@@ -54,7 +66,12 @@ document.addEventListener('DOMContentLoaded', function() {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
 
-            scrollToLine(anchor.hash);
+            if (anchor.hash.match(/\.L\d+/)) {
+                // we have a link to a code, scroll to line
+                scrollToLine(anchor.hash);
+            } else {
+                scrollToElement(anchor.hash);
+            }
         });
     });
 

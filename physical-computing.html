@@ -30,10 +30,26 @@
             <ul>
                 <li><a href="https://learn.newmedia.dog/courses/physical-computing" target="_blank">Physical Computing 2022 website</a></li>
             </ul>
+            <h2>Table of Contents</h2>
+            <div>
+                <h3>Exercises</h3>
+                <ul>
+                    <li><a href="#week1">Week 1 – Arduino Basics</a></li>
+                    <li><a href="#week2">Week 2 – Alt+Ctrl</a></li>
+                    <li><a href="#week4">Week 4 – Two Sensors</a></li>
+                </ul>
+                <h3>Final Project</h3>
+                <ul>
+                    <li><a href="#project-plan">Final Project – Planning</a></li>
+                    <li><a href="#project-heart">Final Project – The Heart</a></li>
+                    <li><a href="#project-threads">Final Project – Threads of Life</a></li>
+                    <li><a href="#project-distance">Final Project – Distance sensing</a></li>
+                </ul>
+            </div>
         </article>
 
-        <article>
-            <h2>Week 1 – <a href="https://learn.newmedia.dog/courses/physical-computing/week-01/#2-arduino-basics-thursday-november-1-1300" target="_blank">Arduino Basics</a></h2>
+        <article id="week1">
+            <h2><a href="#week1">Week 1 – Arduino Basics</a></h2>
             <div>
                 <p>I connected the pins to Arduino as such:</p>
                 <div class="img">
@@ -108,8 +124,8 @@ void loop() {
             <p class="article-end">// END</p>
         </article>
 
-        <article>
-            <h2>Week 2 – <a href="https://learn.newmedia.dog/courses/physical-computing/week-02/#deliverables-for-week-2-deadline-tuesday-november-8-1300" target="_blank">Alt+Ctrl</a></h2>
+        <article id="week2">
+            <h2><a href="#week2">Week 2 – Alt+Ctrl</a></h2>
 
             <div>
                 <h3>Find an interesting existing Alt+Ctrl Interface</h3>
@@ -134,8 +150,8 @@ void loop() {
             
         </article>
 
-        <article>
-            <h2>Week 4 – <a href="https://learn.newmedia.dog/courses/physical-computing/week-04/#assignment-deadline-tuesday-november-22-at-1300" target="_blank">Two Sensors</a></h2>
+        <article id="week4">
+            <h2><a href="#week4">Two Sensors</a></h2>
             
             <div>
                 <h3>About Euclidean rhythms</h3>
@@ -223,7 +239,7 @@ void loop() {
                     </div>
                     <p>I added two sensors – a <a href="https://www.pololu.com/product/1645" target="_blank">force-sensing resistor</a> and a 10KΩ <a href="https://www.pololu.com/product/1645" target="_blank">potentiometer</a>. The force-sensing resistor acts like volume control as discussed in the previous section, and the potentiometer controls the Euclidean algorithm's parameters, namely the length of the rhythm, or <span style="color: var(--text-highlight3)">n</span>. The <span style="color: var(--text-highlight1)">k</span> parameter of the Euclidean algorithm is randomized.</p>
                     <p>The rhythms are generated inside <a href="https://en.wikipedia.org/wiki/SuperCollider" target="_blank">SuperCollider</a> code. SuperCollider is used to start the communication, and it reads four bytes at a time, of which the first two correspond to the touch sensor and the last two to the potentiometer values. Arduino then reads servo angles that are produced by the pattern it receives from Supercollider.</p>
-                    <p>Here's the end result. Unmute to hear the sound...</p>
+                    <p>The end result. Unmute to hear the sound...</p>
                     <div class="video">
                         <video controls width="480">
                             <source src="video/w2.mp4" type="video/mp4">
@@ -510,8 +526,8 @@ p = Pbind(
             <p class="article-end">// END</p>
         </article>
 
-        <article>
-            <h2>Final Project – <a href="https://learn.newmedia.dog/courses/physical-computing/final-project" target="_blank">planning phase</a></h2>
+        <article id="project-plan">
+            <h2><a href="#project-plan">Final Project – Planning</a></h2>
             <div>
                 <h3>What?</h3>
                 <div>
@@ -563,8 +579,8 @@ p = Pbind(
             <p class="article-end">// END</p>
         </article>
 
-        <article>
-            <h2>Final Project – <span style="color: var(--text-highlight3">The Heart</span></a></h2>
+        <article id="project-heart">
+            <h2><a href="#project-heart">Final Project – <span style="color: var(--text-highlight3">The Heart</span></a></h2>
             <div>
                 <h3>Tech needed</h3>
                 <ul>
@@ -580,8 +596,8 @@ p = Pbind(
             <p class="article-end">// END</p>
         </article>
 
-        <article>
-            <h2>Final Project – <span style="color: var(--text-highlight3">Threads of Life</span></a></h2>
+        <article id="project-threads">
+            <h2><a href="#project-threads">Final Project – <span style="color: var(--text-highlight3">Threads of Life</span></a></h2>
             <div>
                 <h3>Tech needed</h3>
                 <ul>
@@ -597,8 +613,8 @@ p = Pbind(
             <p class="article-end">// END</p>
         </article>
 
-        <article>
-            <h2>Final Project – <span style="color: var(--text-highlight3">Distance sensing</span></a></h2>
+        <article id="project-distance">
+            <h2><a href="#project-distance">Final Project – <span style="color: var(--text-highlight3">Distance sensing</span></a></h2>
             <div>
                 <h3>Tech needed</h3>
                 <ul>
@@ -617,6 +633,7 @@ p = Pbind(
             </div>
             <p class="article-end">// END</p>
         </article>
+        <p><a onclick="scrollToTop()">Back to top ↑</a></p>
     </div>
 </body>
 </html>
