@@ -30,6 +30,11 @@
             <ul>
                 <li><a href="https://learn.newmedia.dog/courses/physical-computing" target="_blank">Physical Computing 2022 website</a></li>
             </ul>
+            <h2>Final Project video</h2>
+            <div class="video">
+                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/zFUcLExCB48" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p>Still writing some documentation...</p>
             <h2>Table of Contents</h2>
             <div>
                 <h3>Exercises</h3>
@@ -161,7 +166,7 @@ void loop() {
 
                     <p class="indent">E(<span style="color: var(--text-highlight1)">3</span>, <span style="color: var(--text-highlight3)">8</span>) = <span style="color: var(--text-highlight1)">1</span> 0 0 <span style="color: var(--text-highlight1)">1</span> 0 0 <span style="color: var(--text-highlight1)">1</span> 0</p>
 
-                    <p>where <span style="color: var(--text-highlight1">k=3</span> is the number of hits and <span style="color: var(--text-highlight3">n=8</span> is the length of the rhythm.
+                    <p>where <span style="color: var(--text-highlight1)">k=3</span> is the number of hits and <span style="color: var(--text-highlight3)">n=8</span> is the length of the rhythm.
 
                     <p>I've previously played around some with Euclidean rhythms and found that they're quite nice to use if you use controllers to map values of <span style="color: var(--text-highlight1)">k</span> and <span style="color: var(--text-highlight3)">n</span>. That led to the idea of using <a href="https://en.wikipedia.org/wiki/Servomotor" target="_blank">servomotors</a> to act as a rhythm machine.</p>
                 </div>
@@ -169,7 +174,7 @@ void loop() {
                 <h3>Adding some rhythmical interest</h3>
 
                 <div>
-                    <p>The servomotor I have takes values from <span style="color: var(--text-highlight1">0-180</span> corresponding to degrees in angles. My goal is to map each Euclidean rhythm to an angle. Instead of sending only <span style="color: var(--text-highlight1)">1</span>s and <span style="color: var(--text-highlight1)">0</span>s though, I can randomize the value of each <i>hit</i> to be a value between <span style="color: var(--text-highlight1)">1–180</span>. Thus a hit with a value of <span style="color: var(--text-highlight1)">180</span> would be louder than a hit of <span style="color: var(--text-highlight1)">10</span>, as the servomotor has to turn <i>more</i> and <i>faster</i> to reach the desired angle.</p>
+                    <p>The servomotor I have takes values from <span style="color: var(--text-highlight1)">0-180</span> corresponding to degrees in angles. My goal is to map each Euclidean rhythm to an angle. Instead of sending only <span style="color: var(--text-highlight1)">1</span>s and <span style="color: var(--text-highlight1)">0</span>s though, I can randomize the value of each <i>hit</i> to be a value between <span style="color: var(--text-highlight1)">1–180</span>. Thus a hit with a value of <span style="color: var(--text-highlight1)">180</span> would be louder than a hit of <span style="color: var(--text-highlight1)">10</span>, as the servomotor has to turn <i>more</i> and <i>faster</i> to reach the desired angle.</p>
 
                     <p>The tresillo rhythm with randomized accentuation could for example become:</p>
 
@@ -539,9 +544,9 @@ p = Pbind(
                     </div>
                     <p>My final project is to explore the interactions and fabrication necessary for my master's thesis idea. For my thesis I plan to make a multichannel, interactive audio installation with a heart in the middle of a room.</p>
                     <p>When a person enters the room there is an ambient soundscape of wheezing, clicking, mechanized sounds, breathing. People can explore the auditory scene of the room without interacting if they so wish.</p>
-                    <p>When the person approaches <span style="color: var(--text-highlight3">The Heart</span>, raw, restless synthesized pulsating sounds appear, which become higher and higher in volume, trying to guide the person towards <span style="color: var(--text-highlight3">The Heart</span>.</p>
-                    <p>When the person finally is within touching distance from <span style="color: var(--text-highlight3">The Heart</span>, there should be a change in the audio scenery like you were suddenly on top of a windy mountain, a release of tension, and a light will turn on inside <span style="color: var(--text-highlight3">The Heart</span>, signifying you to interact with it.</p>
-                    <p>Finally, if a person interacts with <span style="color: var(--text-highlight3">The Heart</span> to <i>resuscitate</i> it, music starts playing. There are strings similar to veins called <span style="color: var(--text-highlight3">threads of life</span> coming out of <span style="color: var(--text-highlight3">The Heart</span> and filling the room. Some of them are on a highlighted spot, such as on top of a pedestal, accompanied by a nearby speaker. While the music is playing, if a person touches a <span style="color: var(--text-highlight3">thread of life</span>, an additional layer to the music will fade in and start playing from the closest speaker.</p>
+                    <p>When the person approaches <span style="color: var(--text-highlight3)">The Heart</span>, raw, restless synthesized pulsating sounds appear, which become higher and higher in volume, trying to guide the person towards <span style="color: var(--text-highlight3)">The Heart</span>.</p>
+                    <p>When the person finally is within touching distance from <span style="color: var(--text-highlight3)">The Heart</span>, there should be a change in the audio scenery like you were suddenly on top of a windy mountain, a release of tension, and a light will turn on inside <span style="color: var(--text-highlight3)">The Heart</span>, signifying you to interact with it.</p>
+                    <p>Finally, if a person interacts with <span style="color: var(--text-highlight3)">The Heart</span> to <i>resuscitate</i> it, music starts playing. There are strings similar to veins called <span style="color: var(--text-highlight3)">threads of life</span> coming out of <span style="color: var(--text-highlight3)">The Heart</span> and filling the room. Some of them are on a highlighted spot, such as on top of a pedestal, accompanied by a nearby speaker. While the music is playing, if a person touches a <span style="color: var(--text-highlight3)">thread of life</span>, an additional layer to the music will fade in and start playing from the closest speaker.</p>
 
                     <div class="img">
                         <figure>
@@ -573,14 +578,14 @@ p = Pbind(
                 <div>
                     <p>I'm starting the project from scratch as I do the final project for this course. The goal is to at least prototype a few interactions, figure out how do they work, as well as explore the fabrications necessary to make the installation work.</p>
                     <p>I don't have a lot of previous experience with electronics or fabrication. I did one major project previously where two infrared sensors were used to detect a person either entering or exiting an elevator - and if they were exiting the elevator - some sounds were played through eight surface transducers. This was exhibited over the last summer for three months.</p>
-                    <p>I'll focus on <span style="color: var(--text-highlight3">The Heart</span> and <span style="color: var(--text-highlight3">threads of life</span> interactions and also explore the visual look for the installation. I also want to at least try out the <span style="color: var(--text-highlight3">distance sensing</span>.</p>
+                    <p>I'll focus on <span style="color: var(--text-highlight3)">The Heart</span> and <span style="color: var(--text-highlight3)">threads of life</span> interactions and also explore the visual look for the installation. I also want to at least try out the <span style="color: var(--text-highlight3)">distance sensing</span>.</p>
                 </div>
             </div>
             <p class="article-end">// END</p>
         </article>
 
         <article id="project-heart">
-            <h2><a href="#project-heart">Final Project – <span style="color: var(--text-highlight3">The Heart</span></a></h2>
+            <h2><a href="#project-heart">Final Project – <span style="color: var(--text-highlight3)">The Heart</span></a></h2>
             <div>
                 <h3>Tech needed</h3>
                 <ul>
@@ -597,7 +602,7 @@ p = Pbind(
         </article>
 
         <article id="project-threads">
-            <h2><a href="#project-threads">Final Project – <span style="color: var(--text-highlight3">Threads of Life</span></a></h2>
+            <h2><a href="#project-threads">Final Project – <span style="color: var(--text-highlight3)">Threads of Life</span></a></h2>
             <div>
                 <h3>Tech needed</h3>
                 <ul>
@@ -614,19 +619,67 @@ p = Pbind(
         </article>
 
         <article id="project-distance">
-            <h2><a href="#project-distance">Final Project – <span style="color: var(--text-highlight3">Distance sensing</span></a></h2>
+            <h2><a href="#project-distance">Final Project – <span style="color: var(--text-highlight3)">Distance sensing</span></a></h2>
             <div>
                 <h3>Tech needed</h3>
                 <ul>
-                    <li><a href="https://www.sparkfun.com/products/14844" target="_blank">SparkFun IR Array (MLX90640)</a> ($75)</li>
+                    <li>1x <a href="https://www.sparkfun.com/products/16996" target="_blank">Teensy 4.1 (Headers)</a> ($36)</li>
+                    <li>1x <a href="https://www.sparkfun.com/products/17156" target="_blank">SparkFun Qwiic Shield for Teensy - Extended</a> ($3)</li>
+                    <br>
+                    <li>1x <a href="https://www.sparkfun.com/products/14844" target="_blank">SparkFun IR Array (MLX90640) 55 degree FOV</a> ($75) OR</li>
+                    <li>1x <a href="https://www.sparkfun.com/products/14844" target="_blank">SparkFun IR Array (MLX90640) 110 degree FOV</a> ($75)</li>
+                    <br>
+                    <li>2x <a href="https://www.sparkfun.com/products/16988" target="_blank">SparkFun QwiicBus - EndPoint</a> ($24)</li>
+                    <li>2x <a href="https://www.sparkfun.com/products/14427" target="_blank">Qwiic Cable - 100mm</a> ($3)</li>
+                    <br>
+                    <li>1x long <a href="https://en.wikipedia.org/wiki/Category_5_cable" target="_blank">Cat 5 (Ethernet) cable</a></li>
                 </ul>
-
-                <h3>Testing distance sensing using an IR array</h3>
+                <p>Total: <span style="color: var(--text-highlight1)">$141</span></p>
+                <h3>What?</h3>
                 <div>
-                    <p>to be written...</p>
+                    <p>My end goal with the distance sensing is to be able to sense how close an audience member is to <span style="color: var(--text-highlight3)">The Heart</span>, which is situated in the middle of the room. If the music is not already playing, there is an ambient soundscape that should interactively change in order to guide the audience towards interacting with <span style="color: var(--text-highlight3)">The Heart</span>.</p>
+                    <p>What I require from the distance sensing is two things:</p>
+                    <ol>
+                        <li>Ability to sense 360 degrees around an object</li>
+                        <li>High enough refresh rate for interactivity</li>
+                    </ol>
+                    <p>Distance sensing could be done in many ways, for example by using optical cameras and computer vision. A thermal sensor is a computationally cheap option that might also work well for this type of application.</p>
+                </div>
+
+                <h3>MLX90640 IR Array</h3>
+                <div>
+                    <form id="mlx90640">
+                        <div class="mlx90640-row">
+                            <label for="mlx90640-fov">Field of view:</label>
+                            <select id="mlx90640-fov" onchange="mlx90640calc()" required>
+                                <option value="55">55°</option>
+                                <option value="110">110°</option>
+                            </select>
+                        </div>
+                        <div class="mlx90640-row">
+                            <label for="mlx90640-height">Height (cm):</label>
+                            <input id="mlx90640-height" onchange="mlx90640validate(); mlx90640calc()" type="number" value="200" min="0" max="1000" step="1">
+                        </div>
+                        <div class="mlx90640-row">
+                            <label>Sensor area (cm):</label>
+                            <label id="mlx90640-area"></label>
+                        </div>
+                        <div class="mlx90640-row">
+                            <label>Pixel size (cm):</label>
+                            <label id="mlx90640-pixelsize"></label>
+                        </div>
+                    </form>
                 </div>
 
                 <h3>Extending an I²C cable length</h3>
+                <div>
+                    <p>to be written...</p>
+                </div>
+                <h3>Winter jacket observation</h3>
+                <div>
+                    <p>to be written...</p>
+                </div>
+                <h3>Fun with water cooker</h3>
                 <div>
                     <p>to be written...</p>
                 </div>

@@ -25,6 +25,43 @@ function isInViewport(element) {
     );
 }
 
+function mlx90640validate() {
+    let h = document.getElementById('mlx90640-height').value;
+
+    if (parseInt(h) < 0) {
+        h = Math.abs(h);
+    }
+
+    if (h > 10000) {
+        h = 10000;
+    }
+
+    document.getElementById('mlx90640-height').value = h;
+}
+
+function mlx90640calc() {
+    const fov = parseInt(document.getElementById('mlx90640-fov').value);
+    const h = parseInt(document.getElementById('mlx90640-height').value);
+    const area = document.getElementById('mlx90640-area');
+    const pixelsize = document.getElementById('mlx90640-pixelsize');
+
+    let width, height;
+
+    if (fov === 55) {
+        width = Math.tan(Math.PI / 180 * 55 * 0.5) * h * 2;
+        height = Math.tan(Math.PI / 180 * 35 * 0.5) * h * 2;
+    } else if (fov === 110) {
+        width = Math.tan(Math.PI / 180 * 110 * 0.5) * h * 2;
+        height = Math.tan(Math.PI / 180 * 75 * 0.5) * h * 2;
+    }
+
+    const pixelWidth = width / 32;
+    const pixelHeight = height / 24;
+
+    area.innerText = `${width.toFixed(1)} cm x ${height.toFixed(1)} cm`;
+    pixelsize.innerText = `${pixelWidth.toFixed(1)} cm x ${pixelHeight.toFixed(1)} cm`
+}
+
 function selectText(element) {
     const selection = window.getSelection();
     const range = document.createRange();
@@ -96,6 +133,8 @@ document.addEventListener('DOMContentLoaded', function() {
             video.pause();
         });
     };
+
+    mlx90640calc();
 });
 
 window.addEventListener('load', e => {

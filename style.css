@@ -93,6 +93,28 @@ h2 {
     font-size: var(--h2-size);
 }
 
+label {
+    color: var(--text-color);
+}
+
+#mlx90640 {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-rows: auto auto;
+    width: 250px;
+}
+
+.mlx90640-row {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 140px minmax(auto, 500px);
+}
+
+.mlx90640-row:nth-last-child(2) {
+    border-top: 1px solid white;
+    padding-top: 10px;
+}
+
 p, li {
     color: var(--text-color);
     font-family: Arial, sans-serif;
@@ -112,6 +134,7 @@ a {
 }
 
 a:hover {
+    cursor: pointer;
     text-decoration: underline;
 }
 
