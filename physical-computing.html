@@ -648,32 +648,46 @@ p = Pbind(
 
                 <h3>MLX90640 IR Array</h3>
                 <div>
-                    <form id="mlx90640">
-                        <div class="mlx90640-row">
-                            <label for="mlx90640-fov">Field of view:</label>
-                            <select id="mlx90640-fov" onchange="mlx90640calc()" required>
-                                <option value="55">55°</option>
-                                <option value="110">110°</option>
-                            </select>
-                        </div>
-                        <div class="mlx90640-row">
-                            <label for="mlx90640-height">Height (cm):</label>
-                            <input id="mlx90640-height" onchange="mlx90640validate(); mlx90640calc()" type="number" value="200" min="0" max="1000" step="1">
-                        </div>
-                        <div class="mlx90640-row">
-                            <label>Sensor area (cm):</label>
-                            <label id="mlx90640-area"></label>
-                        </div>
-                        <div class="mlx90640-row">
-                            <label>Pixel size (cm):</label>
-                            <label id="mlx90640-pixelsize"></label>
-                        </div>
-                    </form>
+                    <div class="img">
+                        <img src="img/mlx90640.webp" width="245px">
+                    </div>
+                    <p>The MLX90640 is a thermal sensor that works by passively picking up mid-to long wavelength infrared radiation. It has a 32x24 pixel array with up to 64Hz refresh rate – although for some reason I managed to only get up to 16Hz working. The accuracy is roughly ±1.5°C under ideal conditions.</p>
+                    <div class="img">
+                        <figure>
+                            <img src="img/ir_array.webp">
+                            <figcaption>With the MLX90640 sensor mounted in the ceiling, using trigonometry to calculate the area the sensor will see.</figcaption>
+                        </figure>
+                    </div>
+                    <p>The thermal sensor can be mounted on top of an object in the ceiling in order to sense distance from the center of an object. Using basic trigonometry one can then calculate the area the sensor will see. I've made a calculator to do these calculations automatically below.</p>
+                    <p>It seems like the sensor is skewed so that the image is rotated when the board is mounted parallel to a room. I'll still have to test how big the skew actually is in order to rotate it properly.</p>
                 </div>
+
+                <h3>MLX90640 IR Array Calculator</h3>
+                <form id="mlx90640" onsubmit="document.activeElement.blur();return false;">
+                    <div class="mlx90640-row">
+                        <label for="mlx90640-fov">Field of view:</label>
+                        <select id="mlx90640-fov" onchange="mlx90640calc()" required>
+                            <option value="55">55° / 35°</option>
+                            <option value="110">110° / 75°</option>
+                        </select>
+                    </div>
+                    <div class="mlx90640-row">
+                        <label for="mlx90640-height">Height (cm):</label>
+                        <input id="mlx90640-height" onchange="mlx90640validate(); mlx90640calc()" type="number" value="200" min="0" max="1000" step="1">
+                    </div>
+                    <div class="mlx90640-row">
+                        <label>Sensor area (cm):</label>
+                        <label id="mlx90640-area"></label>
+                    </div>
+                    <div class="mlx90640-row">
+                        <label>Pixel size (cm):</label>
+                        <label id="mlx90640-pixelsize"></label>
+                    </div>
+                </form>
 
                 <h3>Extending an I²C cable length</h3>
                 <div>
-                    <p>to be written...</p>
+                    <p>Since the </p>
                 </div>
                 <h3>Winter jacket observation</h3>
                 <div>
