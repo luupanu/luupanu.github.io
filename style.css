@@ -101,13 +101,12 @@ label {
     display: grid;
     grid-gap: 10px;
     grid-template-rows: auto auto;
-    width: 250px;
 }
 
 .mlx90640-row {
     align-items: center;
     display: grid;
-    grid-template-columns: 140px minmax(auto, 500px);
+    grid-template-columns: 140px fit-content(25%);
 }
 
 .mlx90640-row:nth-last-child(2) {

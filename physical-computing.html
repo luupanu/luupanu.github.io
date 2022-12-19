@@ -652,14 +652,15 @@ p = Pbind(
                         <img src="img/mlx90640.webp" width="245px">
                     </div>
                     <p>The MLX90640 is a thermal sensor that works by passively picking up mid-to long wavelength infrared radiation. It has a 32x24 pixel array with up to 64Hz refresh rate – although for some reason I managed to only get up to 16Hz working. The accuracy is roughly ±1.5°C under ideal conditions.</p>
+                    <p>The actual image it sees is not rectangular, as the image is <a href="https://en.wikipedia.org/wiki/Distortion_(optics)#Radial_distortion" target="_blank">distorted by the lens</a>. The 55° FOV sensor seems to have a pincushion distortion, and I'm guessing the 110° wide lense will have barrel distortion.</p>
+                    <p>It also seems like the sensor is skewed so that the image is rotated when the board is mounted parallel to a room. I'll still have to test how big the skew actually is in order to rotate it properly.</p>
                     <div class="img">
                         <figure>
                             <img src="img/ir_array.webp">
-                            <figcaption>With the MLX90640 sensor mounted in the ceiling, using trigonometry to calculate the area the sensor will see.</figcaption>
+                            <figcaption>With the MLX90640 mounted in the ceiling, it's possible to use trigonometry to calculate the area the sensor will see.</figcaption>
                         </figure>
                     </div>
-                    <p>The thermal sensor can be mounted on top of an object in the ceiling in order to sense distance from the center of an object. Using basic trigonometry one can then calculate the area the sensor will see. I've made a calculator to do these calculations automatically below.</p>
-                    <p>It seems like the sensor is skewed so that the image is rotated when the board is mounted parallel to a room. I'll still have to test how big the skew actually is in order to rotate it properly.</p>
+                    <p>The thermal sensor can be mounted on top of an object in the ceiling in order to sense distance from the center of an object. Using basic trigonometry one can then calculate the area the sensor will see. I've made a calculator below to do these calculations automatically.</p>
                 </div>
 
                 <h3>MLX90640 IR Array Calculator</h3>
@@ -667,8 +668,8 @@ p = Pbind(
                     <div class="mlx90640-row">
                         <label for="mlx90640-fov">Field of view:</label>
                         <select id="mlx90640-fov" onchange="mlx90640calc()" required>
-                            <option value="55">55° / 35°</option>
-                            <option value="110">110° / 75°</option>
+                            <option value="55">55° / 35° (MLX90640BAB)</option>
+                            <option value="110">110° / 75° (MLX90640BAA)</option>
                         </select>
                     </div>
                     <div class="mlx90640-row">
@@ -687,15 +688,71 @@ p = Pbind(
 
                 <h3>Extending an I²C cable length</h3>
                 <div>
-                    <p>Since the </p>
+                    <p>The I²C cable can't transfer data over longer distances as it starts to pick up too much noise. It's possible to extend the cable using an ethernet (CAT5) cable for example with the <a href="https://www.sparkfun.com/products/16988" target="_blank">Sparkfun QwiicBuses</a>. Since the sensor in my case needs to be installed into the ceiling, I had to use them.</p>
                 </div>
+
                 <h3>Winter jacket observation</h3>
                 <div>
-                    <p>to be written...</p>
+                    <p>The problem with using thermal sensors in Finland is that during winter time people might be wearing winter jackets. The difference in the amount of heat emitted is significant and has to be taken into account when using the sensor.</p>
                 </div>
-                <h3>Fun with water cooker</h3>
+
+                <h3>Fun with a water cooker</h3>
                 <div>
-                    <p>to be written...</p>
+                    <p>Working with a thermal sensor is fun as you can use a water cooker when calibrating the sensor area :)</p>
+                    <div class="img">
+                        <img src="img/mlx90640_water_cooker.webp">
+                    </div>
+                </div>
+
+                <h3>Reading data from MLX90640</h3>
+                <div>
+                    <p>To read data from MLX90640 you need a more powerful microcontroller than a traditional Arduino Uno. I tried the sensor with a <a href="https://www.pjrc.com/store/teensy35.html" target="_blank">Teensy 3.5</a> and got it working with a maximum of 16Hz refresh rate. I did some timing tests and it seems like for whatever reason I only get data roughly every 1/8th of a second with the 16Hz refresh rate.</p>
+                    <p>To use the Arduino IDE with Teensys, you need to go to the Arduino IDE preferences and add a URL for additional board managers:</p>
+                    <div class="img">
+                        <img src="img/arduino_settings_teensy.webp" width="650px">
+                    </div>
+                    <p>and then use the Boards Manager to install Teensy.</p>
+                    <div class="img">
+                        <img src="img/arduino_settings_teensy2.webp" width="200px">
+                    </div>
+                    <p>Adafruit has a <a href="https://github.com/adafruit/Adafruit_MLX90640" target="_blank">library for MLX90640</a> that we can use to read data. Here's code to send a frame (32x24 = 768 pixels) of sensor data over serial:</p>
+                    <div class="codeblock">
+                    <pre><div class="clipboard" title="Copy to clipboard" onclick="copyCode('#mlx90640-code', this)"><span class="hidden">Copied!</span></div><code class="arduino" id="mlx90640-code">#include &lt;Adafruit_MLX90640.h&gt;
+
+Adafruit_MLX90640 mlx;
+
+float frame[32*24];                    // buffer for a full frame of temperatures
+byte byte_array[32*24*sizeof(float)];  // bytes to be sent over serial communication
+
+// send the IR sensor frame through serial
+void sendFrame() {
+    memcpy(byte_array, frame, sizeof(byte_array));
+    Serial.write(byte_array, sizeof(byte_array));
+}
+
+void setup() {
+    while (!Serial) delay(10);
+    Serial.begin(230400);
+    delay(100);
+
+    if (!mlx.begin(MLX90640_I2CADDR_DEFAULT, &Wire)) {
+        Serial.println("MLX90640 not found!");
+        while (1) delay(10);
+    }
+
+    Wire.setClock(1000000);                 // 1 MHz clock speed is the maximum MLX90640 can support
+    mlx.setMode(MLX90640_CHESS);            // MLX90640 datasheet recommends using the chess pattern
+    mlx.setResolution(MLX90640_ADC_19BIT);  // internal resolution, more bits = less noise
+    mlx.setRefreshRate(MLX90640_16_HZ);     // update rate
+}
+
+void loop() {
+    // if we get a frame, send it
+    if (mlx.getFrame(frame) == 0) {
+        sendFrame();
+    }
+}</code></pre></div>
+                    <p><a href="https://www.python.org/" target="_blank">python</a> with its <a href="https://numpy.org" target="_blank">numpy</a> module is probably the best option to use when processing two-dimensional matrix data. I've made a python script with various options to process the MLX90640 data (<span style="color: var(--text-highlight3)">reminder to self: add the script below</span>).</p>
                 </div>
             </div>
             <p class="article-end">// END</p>
