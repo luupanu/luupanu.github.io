@@ -657,7 +657,7 @@ p = Pbind(
                     <div class="img">
                         <figure>
                             <img src="img/ir_array.webp">
-                            <figcaption>With the MLX90640 mounted in the ceiling, it's possible to use trigonometry to calculate the area the sensor will see.</figcaption>
+                            <figcaption>With the MLX90640 mounted in the ceiling, it's possible to use trigonometry to calculate the area the sensor will see</figcaption>
                         </figure>
                     </div>
                     <p>The thermal sensor can be mounted on top of an object in the ceiling in order to sense distance from the center of an object. Using basic trigonometry one can then calculate the area the sensor will see. I've made a calculator below to do these calculations automatically.</p>
@@ -691,16 +691,26 @@ p = Pbind(
                     <p>The I²C cable can't transfer data over longer distances as it starts to pick up too much noise. It's possible to extend the cable using an ethernet (CAT5) cable for example with the <a href="https://www.sparkfun.com/products/16988" target="_blank">Sparkfun QwiicBuses</a>. Since the sensor in my case needs to be installed into the ceiling, I had to use them.</p>
                 </div>
 
-                <h3>Winter jacket observation</h3>
+                <h3>Winter clothes observation</h3>
                 <div>
-                    <p>The problem with using thermal sensors in Finland is that during winter time people might be wearing winter jackets. The difference in the amount of heat emitted is significant and has to be taken into account when using the sensor.</p>
+                    <div class="img">
+                        <figure>
+                            <img src="img/mlx90640_winter_clothes.webp" width="450px">
+                            <figcaption>A person emits much less heat when wearing a winter jacket.</figcaption>
+                        </figure>
+                    </div>
+                    <p>The problem with using thermal sensors in Finland is that during winter time people might be wearing winter clothes. The difference in the amount of heat emitted is significant and has to be taken into account when using the sensor.</p>
                 </div>
 
                 <h3>Fun with a water cooker</h3>
                 <div>
                     <p>Working with a thermal sensor is fun as you can use a water cooker when calibrating the sensor area :)</p>
                     <div class="img">
-                        <img src="img/mlx90640_water_cooker.webp">
+                        <figure>
+                            <img src="img/mlx90640_water_cooker.webp" width="300px">
+                            <img src="img/mlx90640_water_cooker2.webp" width="450px">
+                            <figcaption>How a water cooker full of hot water looks like with the thermal sensor</figcaption>
+                        </figure>
                     </div>
                 </div>
 
@@ -753,6 +763,16 @@ void loop() {
     }
 }</code></pre></div>
                     <p><a href="https://www.python.org/" target="_blank">python</a> with its <a href="https://numpy.org" target="_blank">numpy</a> module is probably the best option to use when processing two-dimensional matrix data. I've made a python script with various options to process the MLX90640 data (<span style="color: var(--text-highlight3)">reminder to self: add the script below</span>).</p>
+
+                    <p>To detect a single person's location with the sensor setup as above, it's best to take an average over a few pixels that would roughly correspond to a person's size. This is easiest to achieve using <a href="https://en.wikipedia.org/wiki/Kernel_(image_processing)#Convolution" target="_blank">convolution</a>. This makes tracking people under much more smoother and less prone to noise in the data.</p>
+                    <div class="img">
+                        <figure>
+                            <img src="img/mlx90640_person.webp">
+                            <figcaption>A person under the thermal sensor (raw data)</figcaption>
+                            <img src="img/mlx90640_person_kernel.webp">
+                            <figcaption>A person under the thermal sensor, averaged over a 7x7 wide pixel area using convolution</figcaption>
+                        </figure>
+                    </div>
                 </div>
             </div>
             <p class="article-end">// END</p>
